@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Study</string>
+    <string name="logo_text">Calculator</string>
+    <string name="hint1">Type first number</string>
+    <string name="hint2">Type second number</string>
+    <string name="buttonCLass">Addition</string>
+    <string name="Subtraction">Subtraction</string>
+    <string name="Multiplication">Multiplication</string>
+    <string name="Division">Division</string>
+</resources>
