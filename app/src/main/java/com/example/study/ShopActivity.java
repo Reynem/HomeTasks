@@ -24,12 +24,7 @@ public class ShopActivity extends AppCompatActivity {
             return insets;
         });
         Button homepage = findViewById(R.id.button5);
-        homepage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startNewActivity(homepage);
-            }
-        });
+        homepage.setOnClickListener(v -> startNewActivity(homepage));
     }
     private void startNewActivity(View view){
         Intent intent = new Intent(this, MainActivity.class);
