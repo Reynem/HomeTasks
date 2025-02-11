@@ -1,25 +1,27 @@
 package com.example.study;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView resultView;
-    private EditText number_field_1;
-    private EditText number_field_2;
-    private Button getsum;
-    private Button getsubs;
-    private Button getmultip;
-    private Button getdivision;
+    Button btn;
+    Button btn1;
+    TextView logoText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,51 +31,67 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+
+        });
+        btn = findViewById(R.id.button);
+        btn1 = findViewById(R.id.button3);
+        Button nextActivity = findViewById(R.id.button4);
+        nextActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startNewActivity(nextActivity);
+            }
+        });
+        logoText = findViewById(R.id.textView);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showInfoAlert("Хотите закрыть наше приложение? 💔");
+            }
+        });
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showInfo(((Button) view).getText().toString(), ((Button) view));
+            }
         });
 
-        resultView = findViewById(R.id.maintitle);
-        number_field_1 = findViewById(R.id.editTextText);
-        number_field_2 = findViewById(R.id.editTextText2);
-        getsum = findViewById(R.id.sum);
-        getsum.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                float num1 = Float.parseFloat(number_field_1.getText().toString());
-                float num2 = Float.parseFloat(number_field_2.getText().toString());
-                float res = num1 + num2;
-                resultView.setText(String.valueOf(res));
-            }
-        });
-        getsubs = findViewById(R.id.diff);
-        getsubs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                float num1 = Float.parseFloat(number_field_1.getText().toString());
-                float num2 = Float.parseFloat(number_field_2.getText().toString());
-                float res = num1 - num2;
-                resultView.setText(String.valueOf(res));
-            }
-        });
-        getmultip = findViewById(R.id.Multiplication);
-        getmultip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                float num1 = Float.parseFloat(number_field_1.getText().toString());
-                float num2 = Float.parseFloat(number_field_2.getText().toString());
-                float res = num1 * num2;
-                resultView.setText(String.valueOf(res));
-            }
-        });
-        getdivision = findViewById(R.id.diff2);
-        getdivision.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                float num1 = Float.parseFloat(number_field_1.getText().toString());
-                float num2 = Float.parseFloat(number_field_2.getText().toString());
-                float res = num1 / num2;
-                resultView.setText(String.valueOf(res));
-            }
-        });
+
+    }
+
+    public void buttonTag(View view){
+
+    }
+    public void showInfo(String text, Button button){
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+        button.setBackgroundTintList(ColorStateList.valueOf(Color.GREEN));
+        button.setText("Уже нажали");
+    }
+
+    private void showInfoAlert(String text){
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+        alert.setTitle("Крутой текст")
+                .setMessage("Привет зачетный парень")
+                .setCancelable(false) // Можно ли закрыть
+                .setPositiveButton("Yeah", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton("GET OUT", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+        AlertDialog dialog = alert.create();
+        dialog.show();
+    }
+
+    private void startNewActivity(View view){
+        Intent intent = new Intent(this, ShopActivity.class);
+        startActivity(intent);
 
     }
 }

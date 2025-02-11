@@ -4,99 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/diff2"
-        android:layout_width="129dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="400dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/black"
-        android:fontFamily="@font/monda"
-        android:text="@string/Division"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/Multiplication"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="120dp"
-        android:backgroundTint="@color/black"
-        android:fontFamily="@font/monda"
-        android:text="@string/Multiplication"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/maintitle"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="37dp"
-        android:fontFamily="@font/monda"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="177dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/logo_text"
-        android:textColor="@color/lue_700"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="132dp"
-        android:autofillHints="Type"
-        android:ems="10"
-        android:hint="@string/hint1"
-        android:fontFamily="@font/monda"
-        android:inputType="number"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="50dp"
-        android:autofillHints="Type"
-        android:ems="10"
-        android:fontFamily="@font/monda"
-        android:hint="@string/hint2"
-        android:inputType="number"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
-
-    <Button
-        android:id="@+id/sum"
-        android:layout_width="144dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/black"
-        android:fontFamily="@font/monda"
-        android:text="@string/buttonCLass"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
-
-    <Button
-        android:id="@+id/diff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="324dp"
-        android:layout_marginEnd="18dp"
-        android:backgroundTint="@color/black"
-        android:fontFamily="@font/monda"
-        android:text="@string/Subtraction"
+        android:textColor="#673AB7"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="500dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.78">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5sp"
+            android:layout_weight="1"
+            android:onClick="buttonTag"
+            android:text="@string/cuty" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/shifty" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_weight="1"
+            android:backgroundTint="#CE2929"
+            android:fontFamily="@font/monda"
+            android:onClick="buttonTag"
+            android:text="@string/hello"
+            app:strokeColor="#565353"
+            app:strokeWidth="5px" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="432dp"
+        android:text="@string/manage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
