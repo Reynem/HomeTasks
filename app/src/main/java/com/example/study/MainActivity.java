@@ -1,13 +1,11 @@
 package com.example.study;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn;
     Button btn1;
     TextView logoText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,25 +35,10 @@ public class MainActivity extends AppCompatActivity {
         btn = findViewById(R.id.button);
         btn1 = findViewById(R.id.button3);
         Button nextActivity = findViewById(R.id.button4);
-        nextActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startNewActivity(nextActivity);
-            }
-        });
+        nextActivity.setOnClickListener(v -> startNewActivity(nextActivity));
         logoText = findViewById(R.id.textView);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showInfoAlert("Хотите закрыть наше приложение? 💔");
-            }
-        });
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showInfo(((Button) view).getText().toString(), ((Button) view));
-            }
-        });
+        btn.setOnClickListener(v -> showInfoAlert());
+        btn1.setOnClickListener(view -> showInfo(((Button) view).getText().toString(), ((Button) view)));
 
 
     }
@@ -68,23 +52,13 @@ public class MainActivity extends AppCompatActivity {
         button.setText("Уже нажали");
     }
 
-    private void showInfoAlert(String text){
+    private void showInfoAlert(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        alert.setTitle("Крутой текст")
-                .setMessage("Привет зачетный парень")
+        alert.setTitle("text")
+                .setMessage("Хотите закрыть наше приложение? 💔")
                 .setCancelable(false) // Можно ли закрыть
-                .setPositiveButton("Yeah", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                })
-                .setNegativeButton("GET OUT", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                });
+                .setPositiveButton("Yeah", (dialog, which) -> dialog.cancel())
+                .setNegativeButton("GET OUT", (dialog, which) -> finish());
         AlertDialog dialog = alert.create();
         dialog.show();
     }
