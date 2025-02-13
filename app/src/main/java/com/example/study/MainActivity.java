@@ -3,9 +3,11 @@ package com.example.study;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn;
     Button btn1;
     TextView logoText;
-
+    private ImageButton carBtn, owl;
+    private MediaPlayer carMusic, policeMusic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +43,34 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(v -> showInfoAlert());
         btn1.setOnClickListener(view -> showInfo(((Button) view).getText().toString(), ((Button) view)));
 
+        owl = findViewById(R.id.imageButton);
+        carBtn = findViewById(R.id.imageButton1);
+        carMusic = MediaPlayer.create(this, R.raw.car);
+        policeMusic = MediaPlayer.create(this, R.raw.police);
+        carBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                musicPlay(carMusic, policeMusic);
+            }
+        });
 
+        owl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                musicPlay(policeMusic, carMusic);
+            }
+        });
+    }
+    private void musicPlay(MediaPlayer player1, MediaPlayer player2){
+        if (player1.isPlaying()){
+            player1.pause();
+            player1.setLooping(false);
+        } if(player2.isPlaying()){
+            player2.pause();
+            player2.setLooping(false);
+        }
+        player1.start();
+        player1.setLooping(true);
     }
 
     public void buttonTag(View view){
