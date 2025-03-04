@@ -2,5 +2,7 @@
 <resources>
     <color name="black">#000000</color>
     <color name="lue_700">#BA0B0B</color>
-
+    <color name="main_bgColor">#F6F6F6</color>
+    <color name="as_bgColor">#EAEAEA</color>
+    <color name="logo_Color">#EC6D6D</color>
 </resources>

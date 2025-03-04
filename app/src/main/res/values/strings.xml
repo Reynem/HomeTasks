@@ -6,4 +6,16 @@
     <string name="hello">Hello</string>
     <string name="manage">Перейти в магазин</string>
     <string name="returnToHome">Вернутся в главное меню</string>
+    <string name="graycolumn">GrayColumn</string>
+    <string name="blackfire">blackFire</string>
+    <string name="main">Главная</string>
+    <string name="about_us">О нас
+    </string>
+    <string name="contacts">Контакты</string>
+    <string name="logo_text1">Courses</string>
+    <string name="logo_text2">App</string>
+    <string name="filter_text">filter</string>
+    <string name="game">Game</string>
+
+
 </resources>

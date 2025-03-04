@@ -3,5 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/almendra</item>
         <item>@font/monda</item>
+        <item>@font/montserrat</item>
+        <item>@font/montserrat_bold</item>
     </array>
 </resources>
