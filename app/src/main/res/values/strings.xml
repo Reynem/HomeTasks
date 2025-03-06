@@ -16,6 +16,7 @@
     <string name="logo_text2">App</string>
     <string name="filter_text">filter</string>
     <string name="game">Game</string>
+    <string name="icon_sale">icon_sale</string>
 
 
 </resources>
